@@ -1,0 +1,4 @@
+{
+    "description": "Linter for Lineage2 .txt scripts from C1 and C2 clients",
+    "config.client": "Which client the files are checked against. `auto` picks the one that reads the file best."
+}

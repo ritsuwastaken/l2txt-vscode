@@ -1,0 +1,58 @@
+{
+    "name": "l2txt",
+    "displayName": "L2 Script Linter",
+    "description": "%description%",
+    "version": "1.0.0",
+    "publisher": "ritsuwastaken",
+    "license": "Unlicense",
+    "repository": "https://github.com/ritsuwastaken/l2txt-vscode",
+    "engines": {
+        "vscode": "^1.90.0"
+    },
+    "categories": [
+        "Linters"
+    ],
+    "keywords": [
+        "l2",
+        "lineage2",
+        "l2txt",
+        "l2script"
+    ],
+    "main": "./dist/extension.js",
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "contributes": {
+        "configuration": {
+            "title": "L2 Script Linter",
+            "properties": {
+                "l2txt.client": {
+                    "type": "string",
+                    "enum": [
+                        "auto",
+                        "C1",
+                        "C2"
+                    ],
+                    "default": "auto",
+                    "markdownDescription": "%config.client%"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "build": "esbuild src/extension.ts --bundle --platform=node --format=cjs --target=node18 --external:vscode --outdir=dist",
+        "watch": "npm run build -- --watch",
+        "check": "tsc --noEmit",
+        "package": "npm run build -- --minify && vsce package"
+    },
+    "dependencies": {
+        "l2txt": "^1.0.2"
+    },
+    "devDependencies": {
+        "@types/vscode": "~1.90.0",
+        "@vscode/vsce": "^4.1.1",
+        "esbuild": "^0.28.2",
+        "ovsx": "^1.4.0",
+        "typescript": "^7.0.2"
+    }
+}
