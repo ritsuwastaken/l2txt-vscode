@@ -1,4 +1,4 @@
-# L2 Script Linter
+# l2txt-vscode
 
 Linter for .txt scripts from C1 and C2 clients.
 
