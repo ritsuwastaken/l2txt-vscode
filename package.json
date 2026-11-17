@@ -2,7 +2,7 @@
     "name": "l2txt",
     "displayName": "L2 Script Linter",
     "description": "%description%",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "ritsuwastaken",
     "license": "Unlicense",
     "repository": "https://github.com/ritsuwastaken/l2txt-vscode",
