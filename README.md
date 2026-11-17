@@ -1,6 +1,6 @@
 # l2txt-vscode
 
-Linter for .txt scripts from C1 and C2 clients.
+Syntax highlighting and linting for .txt scripts from C1 and C2 clients.
 
 ## Settings
 

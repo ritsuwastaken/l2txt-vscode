@@ -1,5 +1,7 @@
 **
 !dist/**
+!syntaxes/**
+!language-configuration.json
 !package.json
 !package.nls*.json
 !README.md

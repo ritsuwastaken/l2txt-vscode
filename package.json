@@ -10,6 +10,7 @@
         "vscode": "^1.90.0"
     },
     "categories": [
+        "Programming Languages",
         "Linters"
     ],
     "keywords": [
@@ -19,10 +20,35 @@
         "l2script"
     ],
     "main": "./dist/extension.js",
-    "activationEvents": [
-        "onStartupFinished"
-    ],
+    "activationEvents": [],
     "contributes": {
+        "languages": [
+            {
+                "id": "l2txt",
+                "aliases": [
+                    "L2 Script",
+                    "l2txt"
+                ],
+                "filenamePatterns": [
+                    "**/{abnormalgrp,abnormalname,actionname,armorgrp,castlename,chargrp,classinfo,classtype,commandname,creditgrp,entereventgrp,etcitemgrp,eula,hairgrp,henna,idcname,itemname,mobskillanimgrp,musicinfo,notice,npcgrp,npcname,obscene,petactionname,questname,recipe,servername,skillgrp,skillname,skillsoundgrp,staticobject,symbolname,sysstring,systemmsg,weapongrp}.txt",
+                    "**/{abnormalgrp,abnormalname,actionname,armorgrp,castlename,chargrp,classinfo,classtype,commandname,creditgrp,entereventgrp,etcitemgrp,eula,hairgrp,henna,idcname,itemname,mobskillanimgrp,musicinfo,notice,npcgrp,npcname,obscene,petactionname,questname,recipe,servername,skillgrp,skillname,skillsoundgrp,staticobject,symbolname,sysstring,systemmsg,weapongrp}-*.txt"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "l2txt",
+                "scopeName": "source.l2txt",
+                "path": "./syntaxes/l2txt.tmLanguage.json"
+            }
+        ],
+        "configurationDefaults": {
+            "[l2txt]": {
+                "editor.insertSpaces": false,
+                "files.trimTrailingWhitespace": false
+            }
+        },
         "configuration": {
             "title": "L2 Script Linter",
             "properties": {

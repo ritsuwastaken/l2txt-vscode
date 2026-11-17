@@ -1,0 +1,55 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "L2 Script",
+    "scopeName": "source.l2txt",
+    "patterns": [
+        { "include": "#tag" },
+        { "include": "#field" },
+        { "include": "#value" }
+    ],
+    "repository": {
+        "tag": {
+            "patterns": [
+                { "name": "keyword.control.begin.l2txt", "match": "(?i)(?<![^\\s=;$])[a-z0-9_]+_begin(?=[\\s=;$]|$)" },
+                { "name": "keyword.control.end.l2txt", "match": "(?i)(?<![^\\s=;$])[a-z0-9_]+_end(?=[\\s=;$]|$)" }
+            ]
+        },
+        "field": {
+            "match": "(?<![^\\s;$])([^\\s=;$\\[\\]{}]+)[ \\t\\x{3000}]*(=)",
+            "captures": {
+                "1": { "name": "variable.other.property.l2txt" },
+                "2": { "name": "keyword.operator.assignment.l2txt" }
+            }
+        },
+        "value": {
+            "patterns": [
+                { "include": "#string" },
+                { "include": "#list" },
+                { "include": "#number" }
+            ]
+        },
+        "string": {
+            "name": "string.quoted.other.l2txt",
+            "begin": "\\[",
+            "end": "\\]",
+            "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.l2txt" } },
+            "endCaptures": { "0": { "name": "punctuation.definition.string.end.l2txt" } }
+        },
+        "list": {
+            "name": "meta.structure.list.l2txt",
+            "begin": "\\{",
+            "end": "\\}",
+            "beginCaptures": { "0": { "name": "punctuation.definition.list.begin.l2txt" } },
+            "endCaptures": { "0": { "name": "punctuation.definition.list.end.l2txt" } },
+            "patterns": [
+                { "include": "#string" },
+                { "include": "#number" },
+                { "name": "punctuation.separator.list.l2txt", "match": ";" }
+            ]
+        },
+        "number": {
+            "name": "constant.numeric.l2txt",
+            "match": "(?<![^\\s=;{$])[+-]?(?:\\d+\\.?\\d*|\\.\\d+)(?:[eE][+-]?\\d+)?(?=[\\s;}$]|$)"
+        }
+    }
+}
